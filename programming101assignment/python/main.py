@@ -9,6 +9,7 @@ class Player:
         self.maxHealth = 100
         self.x = 0
         self.y = 0
+        self.damage = 10
 
 #create the player
 player = Player()
@@ -16,29 +17,43 @@ player = Player()
 print("Use 'wasd' to move.")
 print("Type q to quit.")
 
+#enemy class
+class Enemy:
+    def __init__(self):
+        self.health = random.randint(20,40) #give it random health
+        self.damage = random.randint(5,12) #game it random damage amount
+
+#item class
+class Item:
+    def __init__(self, name, healAmount):
+        self.name = name
+        self.healAmount = healAmount
+
 #what happens when you move
 def movementEvent(player):
     event = random.randint(1,3) #generate a random number for what even happens when you move
 
     #take damage from enemy
     if event == 1:
-        damage = random.randint(5,15) #generate a random number of damage the enemy did
-        player.health -= damage
-        print("An enemy damaged you!")
-        print("You lost", damage, "health")
+        print("You ran into an enemy!")
+        enemy = Enemy() #make enemy class
+        player.health -= enemy.damage #the enemy's random damage amount is taken from the player
+        print("The enemy hit you for", enemy.damage)
     #heal player
     elif event == 2:
-        heal = random.randint(5,15) #random number of health gained
-        player.health += heal
+        print("You have found the item: healing potion!")
+        item = Item("Potion", 20)
+
+        player.health += item.healAmount
         
         #Check not over max health
         if player.health > player.maxHealth:
             player.health = player.maxHealth
         
-        print("You got a healing potion!")
-        print("You got ",heal, "health.")
+        print("You healed for", item.healAmount)
     else:
-        print("Nothing happened, keep moving....")
+        print("Nothing was found in this area. Keep moving!")
+    
     print("Current Player Health: ", player.health)
 
 #start game loop
