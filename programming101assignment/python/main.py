@@ -9,5 +9,25 @@ class Player:
 #create the player
 player = Player()
 
-print("Player made")
-print("Health:", player.health) #read the health
+print("Use 'wasd' to move.")
+print("Type q to quit.")
+
+#start game loop
+while True:
+    move = input("Enter move: ") #get input from user
+    if move == "q":
+        print("GAME QUIT")
+        break #end game loop
+    elif move == "w":
+        print("Moved up")
+    elif move == "s":
+        print("Moved down")
+    elif move == "a":
+        print("Moved left")
+    elif move == "d":
+        print("Moved right")
+    else:
+        print("INVALID")
+    
+    
+
