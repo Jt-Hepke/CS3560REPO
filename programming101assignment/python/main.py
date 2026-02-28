@@ -5,6 +5,8 @@ class Player:
     def __init__(self):
         self.health = 100
         self.maxHealth = 100
+        self.x = 0
+        self.y = 0
 
 #create the player
 player = Player()
@@ -20,14 +22,16 @@ while True:
         break #end game loop
     elif move == "w":
         print("Moved up")
+        player.y += 1 # adjust position
     elif move == "s":
         print("Moved down")
+        player.y -= 1
     elif move == "a":
         print("Moved left")
+        player.x -= 1
     elif move == "d":
         print("Moved right")
+        player.x += 1
     else:
         print("INVALID")
-    
-    
-
+    print("Current place: ", player.x, player.y)
