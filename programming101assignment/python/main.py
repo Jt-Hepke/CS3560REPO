@@ -1,6 +1,7 @@
 #Python RPG GAME
 
 import random #for random number generation
+import gamedatabase #sql database
 
 #player class
 class Player:
@@ -13,6 +14,8 @@ class Player:
 
 #create the player
 player = Player()
+gamedatabase.create_database()
+gamedatabase.load_player(player)
 
 print("Use 'wasd' to move.")
 print("Type q to quit.")
@@ -79,6 +82,8 @@ while True:
         break
     #print("Current place: ", player.x, player.y)
     movementEvent(player) #call to random event class
+
+    gamedatabase.save_player(player)
 
     #end loop if player dies
     if player.health <= 0:
