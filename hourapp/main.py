@@ -20,7 +20,6 @@ def add_task():
 
     tk.Button(frame, text="✔").pack(side="left")  # complete (no logic)
     tk.Button(frame, text="X", command=frame.destroy).pack(side="left")  # delete
-    tk.Button(frame, text="+", command=add_task).pack(side="left")  # new
 
     entry.delete(0, tk.END)
 
