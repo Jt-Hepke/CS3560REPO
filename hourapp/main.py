@@ -23,8 +23,8 @@ def add_task():
 
     tk.Label(frame, text=text).pack(side="left")
 
-    tk.Button(frame, text="✔").pack(side="left")
-    tk.Button(frame, text="X", command=frame.destroy).pack(side="left")
+    tk.Button(frame, text="✔", bg="green", activebackground="green", highlightbackground="green").pack(side="left")
+    tk.Button(frame, text="X", bg="red", activebackground="red", highlightbackground="red", command=frame.destroy).pack(side="left")
 
     entry.delete(0, tk.END)
 
